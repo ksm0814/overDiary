@@ -1,6 +1,7 @@
 package com.overDiary.controller;
 
 import com.overDiary.dto.UserDto;
+import com.overDiary.exception.UserException;
 import com.overDiary.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,12 @@ public class UserController {
 
     @PostMapping("")
     public String create(String userId, String name, String password, String email){
-        log.info("Saved User : {}", userService.createUser(new UserDto(userId, name, password, email)));
+        try {
+            log.info("Saved User : {}", userService.createUser(new UserDto(userId, name, password, email)));
+        }
+        catch (UserException e) {
+            e.getMessage();
+        }
         return "redirect:/";
     }
 }
