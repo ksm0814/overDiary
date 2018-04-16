@@ -1,6 +1,7 @@
 package com.overDiary.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User extends AbstractEntity {
+    public static final GuestUser GUEST_USER = new GuestUser();
 
     @Column(unique = true, nullable = false, name = "USERKEY")
     @Id
@@ -29,7 +31,9 @@ public class User extends AbstractEntity {
     @Column
     private String email;
 
+    public User(){
 
+    }
     public User(String userId, String name, String password, String email) {
         this.userId = userId;
         this.name = name;
@@ -73,6 +77,21 @@ public class User extends AbstractEntity {
         this.email = email;
     }
 
+    public boolean isSamePassword(String password){
+        return this.password.equals(password);
+    }
+
+    @JsonIgnore
+    public boolean isGuestUser() {
+        return false;
+    }
+
+    private static class GuestUser extends User {
+        @Override
+        public boolean isGuestUser() {
+            return true;
+        }
+    }
     @Override
     public String toString() {
         return "User{" +

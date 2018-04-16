@@ -34,4 +34,37 @@ public class UserAcceptanceTest extends AcceptanceTest {
         assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
     }
 
+    @Test
+    public void createLoginForm() throws Exception {
+        ResponseEntity<String> response = template.getForEntity("/users/loginForm", String.class);
+        assertThat(response.getStatusCode(), is(HttpStatus.OK));
+        log.info("로그인 HTML BODY : {}", response.getBody());
+    }
+
+    @Test
+    public void login() throws Exception {
+        HttpEntity<MultiValueMap<String, Object>> request = ResponseBuilder.urlEncodedForm().
+                addParameter("userId", "linkzer").addParameter("password", "k5696").build();
+        ResponseEntity<String> response = template.postForEntity("/users/login", request, String.class);
+        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
+    }
+
+    @Test
+    public void login_fail_not_exist_user() throws Exception{
+        HttpEntity<MultiValueMap<String, Object>> request = ResponseBuilder.urlEncodedForm().
+                addParameter("userId", "notexist").addParameter("password", "k5696").build();
+        ResponseEntity<String> response = template.postForEntity("/users/login", request, String.class);
+        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
+        log.info("실패해서 로그인창 HTML BODY : {}", response.getBody());
+    }
+
+    @Test
+    public void login_fail_password() throws Exception {
+        HttpEntity<MultiValueMap<String, Object>> request = ResponseBuilder.urlEncodedForm().
+                addParameter("userId", "ksm0814").addParameter("password", "badpword").build();
+        ResponseEntity<String> response = template.postForEntity("/users/login", request, String.class);
+        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
+        log.info("실패해서 로그인창 HTML BODY : {}", response.getBody());
+    }
+
 }

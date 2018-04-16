@@ -6,11 +6,13 @@ import com.overDiary.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/users")
@@ -26,13 +28,26 @@ public class UserController {
     }
 
     @PostMapping("")
-    public String create(String userId, String name, String password, String email){
+    public String create(String userId, String name, String password, String email) throws Exception {
+        log.info("Saved User : {}", userService.createUser(new UserDto(userId, name, password, email)));
+        return "redirect:/";
+    }
+
+    @GetMapping("/loginForm")
+    public String loginForm() {
+        return "/user/login";
+    }
+
+    @PostMapping("/login")
+    public String login(String userId, String password, HttpSession session, Model model) {
         try {
-            log.info("Saved User : {}", userService.createUser(new UserDto(userId, name, password, email)));
+            userService.login(userId, password);
+        } catch (UserException e) {
+            log.info("USER EXCEPTION ERROR : {}", e.getMessage());
+            return "redirect:/user/loginForm";
         }
-        catch (UserException e) {
-            e.getMessage();
-        }
+        session.setAttribute("SESSION_KEY", userId);
+        model.addAttribute("SESSION", session);
         return "redirect:/";
     }
 }
