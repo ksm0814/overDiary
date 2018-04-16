@@ -20,7 +20,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public abstract class AcceptanceTest {
-    private static final String DEFAULT_LOGIN_USER = "ksm0814";
+    private static final String DEFAULT_LOGIN_USER = "linkzer";
 
     @Resource(name = "userRepository")
     UserRepository userRepository;
