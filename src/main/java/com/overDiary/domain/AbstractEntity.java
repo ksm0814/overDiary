@@ -28,13 +28,13 @@ public class AbstractEntity {
     }
 
     @JsonIgnore
-    public String getFormattedCreateDate() {
-        return getFormattedDate(createdDate, "yyyy.MM.dd HH:mm:ss");
+    public String getCreatedDate() {
+        return getFormattedDate(createdDate, "yyyy.MM.dd HH:mm");
     }
 
     @JsonIgnore
-    public String getFormattedModifiedDate() {
-        return getFormattedDate(modifiedDate, "yyyy.MM.dd HH:mm:ss");
+    public String getModifiedDate() {
+        return getFormattedDate(modifiedDate, "yyyy.MM.dd HH:mm");
     }
 
     private String getFormattedDate(LocalDateTime dateTime, String format) {
@@ -44,4 +44,11 @@ public class AbstractEntity {
         return dateTime.format(DateTimeFormatter.ofPattern(format));
     }
 
+    @Override
+    public String toString() {
+        return "AbstractEntity{" +
+                "createdDate=" + createdDate +
+                ", modifiedDate=" + modifiedDate +
+                '}';
+    }
 }
