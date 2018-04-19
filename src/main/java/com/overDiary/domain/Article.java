@@ -1,6 +1,9 @@
 package com.overDiary.domain;
 
+import com.overDiary.dto.ArticleDto;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Article extends AbstractEntity {
@@ -10,17 +13,24 @@ public class Article extends AbstractEntity {
     @GeneratedValue
     private long ArticleKey;
 
-    @Column(nullable = false)
+    @Column
     private String title;
 
-    @Column(nullable = false)
+    @Column(columnDefinition="LONGTEXT")
     private String contents;
 
-    @Column(nullable = false)
+    @Column
     private String label;
 
-    @Column(nullable = false)
+    @Column
     private boolean openRange = true;
+
+    @Column
+    private int views = 0;
+
+    @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
+    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Attachment> attachments;
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_writer"))
@@ -35,6 +45,10 @@ public class Article extends AbstractEntity {
         this.contents = contents;
         this.label = label;
         this.openRange = openRange;
+    }
+
+    public long getArticleKey() {
+        return ArticleKey;
     }
 
     public String getTitle() {
@@ -75,6 +89,29 @@ public class Article extends AbstractEntity {
 
     public void setWriter(User writer) {
         this.writer = writer;
+    }
+
+    public int getViews() {
+        return views;
+    }
+
+    public void setViews() {
+        this.views = getViews() + 1;
+    }
+
+    public void addFile(Attachment attachment) {
+        attachments.add(attachment);
+    }
+
+    public List<Attachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setDto(ArticleDto articleDto) {
+        this.title = articleDto.getTitle();
+        this.contents = articleDto.getContents();
+        this.label = articleDto.getLabel();
+        this.openRange = articleDto.isOpenRange();
     }
 
     @Override

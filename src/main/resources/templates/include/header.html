@@ -9,11 +9,13 @@
     <meta name="author" content="">
     <title>SB Admin - Start Bootstrap Template</title>
     <!-- Bootstrap core CSS-->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
-    <link href="/css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -40,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                <a class="nav-link" href="list.html">
+                <a class="nav-link" href="tables.html">
                     <i class="fa fa-fw fa-table"></i>
                     <span class="nav-link-text">Tables</span>
                 </a>
@@ -68,16 +70,16 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                     <li>
-                        <a href="login.html">Login Page</a>
+                        <a href="/users/loginForm">Login Page</a>
                     </li>
                     <li>
-                        <a href="register.html">Registration Page</a>
+                        <a href="/users/form">Registration Page</a>
                     </li>
                     <li>
                         <a href="forgot-password.html">Forgot Password Page</a>
                     </li>
                     <li>
-                        <a href="form.html">Blank Page</a>
+                        <a href="blank.html">Blank Page</a>
                     </li>
                 </ul>
             </li>
@@ -237,184 +239,16 @@
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/form">
+                    Register
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users/loginForm">
+                    Login
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
-<div class="content-wrapper">
-    <div class="container-fluid">
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
-            </li>
-            <li class="breadcrumb-item active">Article Form</li>
-        </ol>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <h1>Article Form <span class="badge badge-secondary">Tip</span>
-                    <span class="badge badge-secondary">공략</span>
-                    <span class="badge badge-secondary">후기</span>
-                </h1>
-            </div>
-        </div>
-
-        <br/>
-        <div class="row">
-            <div class="col-sm-1">
-                <h4>File</h4>
-            </div>
-            <div class="col-sm-11">
-                <form action="/api/attachments" method="post" enctype="multipart/form-data" id="file-upload-form">
-                    <input type="hidden" name="articleKey" value="{{ArticleKey}}">
-                    <div class="input-group">
-                        <div class="custom-file" id="fileUploadForm">
-                            <input type="file" class="file" id="file-label" name="file">
-                            <label class="custom-file-label" for="file-label">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" id="file-upload-button" type="submit">UPLOAD
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <br/>
-        <form class="article-form" method="post" action="/articles/create/{{ArticleKey}}">
-            <div class="row">
-                <div class="col-sm-1">
-                    <h4>Writer</h4>
-                </div>
-                <div class="col-sm-11">
-                    <input type="text" class="form-control" placeholder="user name" aria-describedby="basic-addon1"
-                           name="user">
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-sm-1">
-                    <h4>Title</h4>
-                </div>
-                <div class="col-sm-11">
-                    <div class="input-group mb-3" name="label">
-                        <div class="input-group-prepend" name="label">
-                            <button class="btn btn-outline-secondary dropdown-toggle" id="article-dropdown"
-                                    type="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" name="label">Label
-                            </button>
-
-                            <div id="article-label" class="dropdown-menu" name="label">
-                                <a class="dropdown-item" name="label">TIP</a>
-                                <a class="dropdown-item" href="#">공략</a>
-                                <a class="dropdown-item" href="#">후기</a>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                               name="title">
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-sm-1">
-                    <h4>Category</h4>
-                </div>
-                <div class="col-sm-11">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="article-label-choose" name="label">분류</label>
-                        </div>
-                        <select class="custom-select" id="article-label-choose" name="label">
-                            <option selected>Choose...</option>
-                            <option value="Tip">Tip</option>
-                            <option value="Review">Review</option>
-                            <option value="Strategy">Strategy</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-sm-1">
-                    <h4>contents</h4>
-                </div>
-                <div class="col-sm-11">
-                    <div class="form-group mb-3">
-                        <textarea class="form-control" name="contents" id="exampleFormControlTextarea1"
-                                  rows="8"></textarea>
-                    </div>
-                </div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-sm-1">
-                    <h4>Status</h4>
-                </div>
-                <div class="col-sm-8">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="openRange" value="true" id="public-range">
-                        <label class="form-check-label" for="public-range">public</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="openRange" value="false" id="private-range">
-                        <label class="form-check-label" for="private-range">private</label>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <label class="form-check-label" for="private-range">(If you not choose, it will be public.)</label>
-                </div>
-            </div>
-            <br/><br/><br/>
-            <div class="row">
-                <div class="col align-self-center">
-                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- /.container-fluid-->
-<!-- /.content-wrapper-->
-<footer class="sticky-footer">
-    <div class="container">
-        <div class="text-center">
-            <small>Copyright © Your Website 2018</small>
-        </div>
-    </div>
-</footer>
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fa fa-angle-up"></i>
-</a>
-<!-- Logout Modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Bootstrap core JavaScript-->
-<script src="/vendor/jquery/jquery.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="/js/sb-admin.min.js"></script>
-<script src="/js/sb-admin-article.js"></script>
-</div>
-</body>
-
-</html>

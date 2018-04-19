@@ -1,5 +1,6 @@
 package com.overDiary.controller;
 
+import com.overDiary.domain.User;
 import com.overDiary.dto.UserDto;
 import com.overDiary.exception.UserException;
 import com.overDiary.service.UserService;
@@ -35,18 +36,19 @@ public class UserController {
 
     @GetMapping("/loginForm")
     public String loginForm() {
-        return "/user/login";
+        return "/user/loginForm";
     }
 
     @PostMapping("/login")
     public String login(String userId, String password, HttpSession session, Model model) {
+        User user;
         try {
-            userService.login(userId, password);
+            user = userService.login(userId, password);
         } catch (UserException e) {
             log.info("USER EXCEPTION ERROR : {}", e.getMessage());
             return "redirect:/user/loginForm";
         }
-        session.setAttribute("SESSION_KEY", userId);
+        session.setAttribute("SESSION_KEY",user);
         model.addAttribute("SESSION", session);
         return "redirect:/";
     }
