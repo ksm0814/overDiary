@@ -3,6 +3,7 @@ package com.overDiary.domain;
 import com.overDiary.dto.ArticleDto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,7 +12,7 @@ public class Article extends AbstractEntity {
     @Column(unique = true, nullable = false)
     @Id
     @GeneratedValue
-    private long ArticleKey;
+    private long articleKey;
 
     @Column
     private String title;
@@ -30,7 +31,7 @@ public class Article extends AbstractEntity {
 
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
     @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Attachment> attachments;
+    private List<Attachment> attachments = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_writer"))
@@ -48,7 +49,7 @@ public class Article extends AbstractEntity {
     }
 
     public long getArticleKey() {
-        return ArticleKey;
+        return articleKey;
     }
 
     public String getTitle() {
@@ -117,7 +118,7 @@ public class Article extends AbstractEntity {
     @Override
     public String toString() {
         return "Article{" +
-                "ArticleKey=" + ArticleKey +
+                "ArticleKey=" + articleKey +
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", label='" + label + '\'' +
