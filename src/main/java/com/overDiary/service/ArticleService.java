@@ -5,6 +5,8 @@ import com.overDiary.domain.ArticleRepository;
 import com.overDiary.domain.Attachment;
 import com.overDiary.domain.User;
 import com.overDiary.dto.ArticleDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @Service
 public class ArticleService {
+    private static final Logger log = LoggerFactory.getLogger(ArticleService.class);
 
     @Resource(name = "articleRepository")
     ArticleRepository articleRepository;
@@ -34,23 +37,14 @@ public class ArticleService {
     }
 
 
-    @Transactional
-    public void create(User loginUser, long articleKey, ArticleDto articleDto) {
-        Article article = findById(articleKey);
-        article.setDto(articleDto);
+    public void create(User loginUser, ArticleDto articleDto, Attachment attachment) {
+        Article article = articleDto.toArticle();
         article.setWriter(loginUser);
-    }
-
-    public Article createBlank() {
-        return articleRepository.save(new Article());
-    }
-
-    @Transactional
-    public void setAttachment(long articleKey, Attachment attachment) {
-        Article article = findById(articleKey);
         article.addFile(attachment);
-
+        Article newArticle = articleRepository.save(article);
+        log.info("삽입할 글 정보 : {}", newArticle.getTitle());
     }
+
 
     @Transactional
     public Article viewArticle(long articleKey) {

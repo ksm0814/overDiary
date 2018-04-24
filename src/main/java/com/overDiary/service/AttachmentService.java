@@ -24,6 +24,10 @@ public class AttachmentService {
         return attachmentRepository.findByFileName(oldName);
     }
 
+    public Attachment findOne(Long attachmentKey) {
+        return attachmentRepository.findOne(attachmentKey);
+    }
+
     public Attachment saveFile(MultipartFile file) throws IOException {
         String oldName = file.getOriginalFilename();
         String dbName = oldName;

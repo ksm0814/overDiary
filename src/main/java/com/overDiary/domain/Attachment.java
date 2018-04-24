@@ -8,15 +8,11 @@ import java.io.File;
 
 @Entity
 public class Attachment {
-    // TODO Attachment class, repository, service, controller 만들고 Article에 관계 매핑하기
-    // TODO Attachment는 추후에 명예의 사진전당에도 쓰일 예정
-    // TODO Article 저장 테스트 코드 생성
-    // TODO Article을 저장하는데서 upload 부분은 articlecontroller에 연결되게 따로 upload 버튼 만들기
 
     @Column(unique = true, nullable = false)
     @Id
     @GeneratedValue
-    private long AttachmentKey;
+    private long attachmentKey;
 
     @Column(nullable = false)
     File file;
@@ -36,7 +32,7 @@ public class Attachment {
     }
 
     public long getAttachmentKey() {
-        return AttachmentKey;
+        return attachmentKey;
     }
 
     public File getFile() {

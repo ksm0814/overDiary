@@ -1,0 +1,887 @@
+{{>include/header}}
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#"><h4>OverDiary</h4></a>
+            </li>
+            <li class="breadcrumb-item active"><h4>랭킹</h4></li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <img src="/images/overdiary_icon.png" class="img-fluid" width="20%" height="20%"/>  상위 랭킹
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped" style="background-color: #43484c;color: #f99e1a;;border-color:#f99e1a;">
+                        <thead>
+                        <tr>
+                            <th scope="col">순위</th>
+                            <th scope="col">레벨</th>
+                            <th scope="col">플레이어</th>
+                            <th scope="col">승률</th>
+                            <th scope="col">K/D</th>
+                            <th scope="col">모스트 영웅</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-side">
+                        <tr class="col">
+                            <td>1</td>
+                            <td>{{Rank.levels.[1]}}</td>
+                            <td>{{Rank.players.[0]}}</td>
+                            <td>{{Rank.ratios.[0]}}</td>
+                            <td>{{Rank.kds.[0]}}</td>
+                            <td>{{Rank.mostHeroes.[0]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>2</td>
+                            <td>{{Rank.levels.[2]}}</td>
+                            <td>{{Rank.players.[1]}}</td>
+                            <td>{{Rank.ratios.[1]}}</td>
+                            <td>{{Rank.kds.[1]}}</td>
+                            <td>{{Rank.mostHeroes.[1]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>3</td>
+                            <td>{{Rank.levels.[3]}}</td>
+                            <td>{{Rank.players.[2]}}</td>
+                            <td>{{Rank.ratios.[2]}}</td>
+                            <td>{{Rank.kds.[2]}}</td>
+                            <td>{{Rank.mostHeroes.[2]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>4</td>
+                            <td>{{Rank.levels.[4]}}</td>
+                            <td>{{Rank.players.[3]}}</td>
+                            <td>{{Rank.ratios.[3]}}</td>
+                            <td>{{Rank.kds.[3]}}</td>
+                            <td>{{Rank.mostHeroes.[3]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>5</td>
+                            <td>{{Rank.levels.[5]}}</td>
+                            <td>{{Rank.players.[4]}}</td>
+                            <td>{{Rank.ratios.[4]}}</td>
+                            <td>{{Rank.kds.[4]}}</td>
+                            <td>{{Rank.mostHeroes.[4]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>6</td>
+                            <td>{{Rank.levels.[6]}}</td>
+                            <td>{{Rank.players.[5]}}</td>
+                            <td>{{Rank.ratios.[5]}}</td>
+                            <td>{{Rank.kds.[5]}}</td>
+                            <td>{{Rank.mostHeroes.[5]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>7</td>
+                            <td>{{Rank.levels.[7]}}</td>
+                            <td>{{Rank.players.[6]}}</td>
+                            <td>{{Rank.ratios.[6]}}</td>
+                            <td>{{Rank.kds.[6]}}</td>
+                            <td>{{Rank.mostHeroes.[6]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>8</td>
+                            <td>{{Rank.levels.[8]}}</td>
+                            <td>{{Rank.players.[7]}}</td>
+                            <td>{{Rank.ratios.[7]}}</td>
+                            <td>{{Rank.kds.[7]}}</td>
+                            <td>{{Rank.mostHeroes.[7]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>9</td>
+                            <td>{{Rank.levels.[9]}}</td>
+                            <td>{{Rank.players.[8]}}</td>
+                            <td>{{Rank.ratios.[8]}}</td>
+                            <td>{{Rank.kds.[8]}}</td>
+                            <td>{{Rank.mostHeroes.[8]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>10</td>
+                            <td>{{Rank.levels.[10]}}</td>
+                            <td>{{Rank.players.[9]}}</td>
+                            <td>{{Rank.ratios.[9]}}</td>
+                            <td>{{Rank.kds.[9]}}</td>
+                            <td>{{Rank.mostHeroes.[9]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>11</td>
+                            <td>{{Rank.levels.[11]}}</td>
+                            <td>{{Rank.players.[10]}}</td>
+                            <td>{{Rank.ratios.[10]}}</td>
+                            <td>{{Rank.kds.[10]}}</td>
+                            <td>{{Rank.mostHeroes.[10]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>12</td>
+                            <td>{{Rank.levels.[12]}}</td>
+                            <td>{{Rank.players.[11]}}</td>
+                            <td>{{Rank.ratios.[11]}}</td>
+                            <td>{{Rank.kds.[11]}}</td>
+                            <td>{{Rank.mostHeroes.[11]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>13</td>
+                            <td>{{Rank.levels.[13]}}</td>
+                            <td>{{Rank.players.[12]}}</td>
+                            <td>{{Rank.ratios.[12]}}</td>
+                            <td>{{Rank.kds.[12]}}</td>
+                            <td>{{Rank.mostHeroes.[12]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>14</td>
+                            <td>{{Rank.levels.[14]}}</td>
+                            <td>{{Rank.players.[13]}}</td>
+                            <td>{{Rank.ratios.[13]}}</td>
+                            <td>{{Rank.kds.[13]}}</td>
+                            <td>{{Rank.mostHeroes.[13]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>15</td>
+                            <td>{{Rank.levels.[15]}}</td>
+                            <td>{{Rank.players.[14]}}</td>
+                            <td>{{Rank.ratios.[14]}}</td>
+                            <td>{{Rank.kds.[14]}}</td>
+                            <td>{{Rank.mostHeroes.[14]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>16</td>
+                            <td>{{Rank.levels.[16]}}</td>
+                            <td>{{Rank.players.[15]}}</td>
+                            <td>{{Rank.ratios.[15]}}</td>
+                            <td>{{Rank.kds.[15]}}</td>
+                            <td>{{Rank.mostHeroes.[15]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>17</td>
+                            <td>{{Rank.levels.[17]}}</td>
+                            <td>{{Rank.players.[16]}}</td>
+                            <td>{{Rank.ratios.[16]}}</td>
+                            <td>{{Rank.kds.[16]}}</td>
+                            <td>{{Rank.mostHeroes.[16]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>18</td>
+                            <td>{{Rank.levels.[18]}}</td>
+                            <td>{{Rank.players.[17]}}</td>
+                            <td>{{Rank.ratios.[17]}}</td>
+                            <td>{{Rank.kds.[17]}}</td>
+                            <td>{{Rank.mostHeroes.[17]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>19</td>
+                            <td>{{Rank.levels.[19]}}</td>
+                            <td>{{Rank.players.[18]}}</td>
+                            <td>{{Rank.ratios.[18]}}</td>
+                            <td>{{Rank.kds.[18]}}</td>
+                            <td>{{Rank.mostHeroes.[18]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>20</td>
+                            <td>{{Rank.levels.[20]}}</td>
+                            <td>{{Rank.players.[19]}}</td>
+                            <td>{{Rank.ratios.[19]}}</td>
+                            <td>{{Rank.kds.[19]}}</td>
+                            <td>{{Rank.mostHeroes.[19]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>21</td>
+                            <td>{{Rank.levels.[21]}}</td>
+                            <td>{{Rank.players.[20]}}</td>
+                            <td>{{Rank.ratios.[20]}}</td>
+                            <td>{{Rank.kds.[20]}}</td>
+                            <td>{{Rank.mostHeroes.[20]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>22</td>
+                            <td>{{Rank.levels.[22]}}</td>
+                            <td>{{Rank.players.[21]}}</td>
+                            <td>{{Rank.ratios.[21]}}</td>
+                            <td>{{Rank.kds.[21]}}</td>
+                            <td>{{Rank.mostHeroes.[21]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>23</td>
+                            <td>{{Rank.levels.[23]}}</td>
+                            <td>{{Rank.players.[22]}}</td>
+                            <td>{{Rank.ratios.[22]}}</td>
+                            <td>{{Rank.kds.[22]}}</td>
+                            <td>{{Rank.mostHeroes.[22]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>24</td>
+                            <td>{{Rank.levels.[24]}}</td>
+                            <td>{{Rank.players.[23]}}</td>
+                            <td>{{Rank.ratios.[23]}}</td>
+                            <td>{{Rank.kds.[23]}}</td>
+                            <td>{{Rank.mostHeroes.[23]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>25</td>
+                            <td>{{Rank.levels.[25]}}</td>
+                            <td>{{Rank.players.[24]}}</td>
+                            <td>{{Rank.ratios.[24]}}</td>
+                            <td>{{Rank.kds.[24]}}</td>
+                            <td>{{Rank.mostHeroes.[24]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>26</td>
+                            <td>{{Rank.levels.[26]}}</td>
+                            <td>{{Rank.players.[25]}}</td>
+                            <td>{{Rank.ratios.[25]}}</td>
+                            <td>{{Rank.kds.[25]}}</td>
+                            <td>{{Rank.mostHeroes.[25]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>27</td>
+                            <td>{{Rank.levels.[27]}}</td>
+                            <td>{{Rank.players.[26]}}</td>
+                            <td>{{Rank.ratios.[26]}}</td>
+                            <td>{{Rank.kds.[26]}}</td>
+                            <td>{{Rank.mostHeroes.[26]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>28</td>
+                            <td>{{Rank.levels.[28]}}</td>
+                            <td>{{Rank.players.[27]}}</td>
+                            <td>{{Rank.ratios.[27]}}</td>
+                            <td>{{Rank.kds.[27]}}</td>
+                            <td>{{Rank.mostHeroes.[27]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>29</td>
+                            <td>{{Rank.levels.[29]}}</td>
+                            <td>{{Rank.players.[28]}}</td>
+                            <td>{{Rank.ratios.[28]}}</td>
+                            <td>{{Rank.kds.[28]}}</td>
+                            <td>{{Rank.mostHeroes.[28]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>30</td>
+                            <td>{{Rank.levels.[30]}}</td>
+                            <td>{{Rank.players.[29]}}</td>
+                            <td>{{Rank.ratios.[29]}}</td>
+                            <td>{{Rank.kds.[29]}}</td>
+                            <td>{{Rank.mostHeroes.[29]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>31</td>
+                            <td>{{Rank.levels.[31]}}</td>
+                            <td>{{Rank.players.[30]}}</td>
+                            <td>{{Rank.ratios.[30]}}</td>
+                            <td>{{Rank.kds.[30]}}</td>
+                            <td>{{Rank.mostHeroes.[30]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>32</td>
+                            <td>{{Rank.levels.[32]}}</td>
+                            <td>{{Rank.players.[31]}}</td>
+                            <td>{{Rank.ratios.[31]}}</td>
+                            <td>{{Rank.kds.[31]}}</td>
+                            <td>{{Rank.mostHeroes.[31]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>33</td>
+                            <td>{{Rank.levels.[33]}}</td>
+                            <td>{{Rank.players.[32]}}</td>
+                            <td>{{Rank.ratios.[32]}}</td>
+                            <td>{{Rank.kds.[32]}}</td>
+                            <td>{{Rank.mostHeroes.[32]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>34</td>
+                            <td>{{Rank.levels.[34]}}</td>
+                            <td>{{Rank.players.[33]}}</td>
+                            <td>{{Rank.ratios.[33]}}</td>
+                            <td>{{Rank.kds.[33]}}</td>
+                            <td>{{Rank.mostHeroes.[33]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>35</td>
+                            <td>{{Rank.levels.[35]}}</td>
+                            <td>{{Rank.players.[34]}}</td>
+                            <td>{{Rank.ratios.[34]}}</td>
+                            <td>{{Rank.kds.[34]}}</td>
+                            <td>{{Rank.mostHeroes.[34]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>36</td>
+                            <td>{{Rank.levels.[36]}}</td>
+                            <td>{{Rank.players.[35]}}</td>
+                            <td>{{Rank.ratios.[35]}}</td>
+                            <td>{{Rank.kds.[35]}}</td>
+                            <td>{{Rank.mostHeroes.[35]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>37</td>
+                            <td>{{Rank.levels.[37]}}</td>
+                            <td>{{Rank.players.[36]}}</td>
+                            <td>{{Rank.ratios.[36]}}</td>
+                            <td>{{Rank.kds.[36]}}</td>
+                            <td>{{Rank.mostHeroes.[36]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>38</td>
+                            <td>{{Rank.levels.[38]}}</td>
+                            <td>{{Rank.players.[37]}}</td>
+                            <td>{{Rank.ratios.[37]}}</td>
+                            <td>{{Rank.kds.[37]}}</td>
+                            <td>{{Rank.mostHeroes.[37]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>39</td>
+                            <td>{{Rank.levels.[39]}}</td>
+                            <td>{{Rank.players.[38]}}</td>
+                            <td>{{Rank.ratios.[38]}}</td>
+                            <td>{{Rank.kds.[38]}}</td>
+                            <td>{{Rank.mostHeroes.[38]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>40</td>
+                            <td>{{Rank.levels.[40]}}</td>
+                            <td>{{Rank.players.[39]}}</td>
+                            <td>{{Rank.ratios.[39]}}</td>
+                            <td>{{Rank.kds.[39]}}</td>
+                            <td>{{Rank.mostHeroes.[39]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>41</td>
+                            <td>{{Rank.levels.[41]}}</td>
+                            <td>{{Rank.players.[40]}}</td>
+                            <td>{{Rank.ratios.[40]}}</td>
+                            <td>{{Rank.kds.[40]}}</td>
+                            <td>{{Rank.mostHeroes.[40]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>42</td>
+                            <td>{{Rank.levels.[42]}}</td>
+                            <td>{{Rank.players.[41]}}</td>
+                            <td>{{Rank.ratios.[41]}}</td>
+                            <td>{{Rank.kds.[41]}}</td>
+                            <td>{{Rank.mostHeroes.[41]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>43</td>
+                            <td>{{Rank.levels.[43]}}</td>
+                            <td>{{Rank.players.[42]}}</td>
+                            <td>{{Rank.ratios.[42]}}</td>
+                            <td>{{Rank.kds.[42]}}</td>
+                            <td>{{Rank.mostHeroes.[42]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>44</td>
+                            <td>{{Rank.levels.[44]}}</td>
+                            <td>{{Rank.players.[43]}}</td>
+                            <td>{{Rank.ratios.[43]}}</td>
+                            <td>{{Rank.kds.[43]}}</td>
+                            <td>{{Rank.mostHeroes.[43]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>45</td>
+                            <td>{{Rank.levels.[45]}}</td>
+                            <td>{{Rank.players.[44]}}</td>
+                            <td>{{Rank.ratios.[44]}}</td>
+                            <td>{{Rank.kds.[44]}}</td>
+                            <td>{{Rank.mostHeroes.[44]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>46</td>
+                            <td>{{Rank.levels.[46]}}</td>
+                            <td>{{Rank.players.[45]}}</td>
+                            <td>{{Rank.ratios.[45]}}</td>
+                            <td>{{Rank.kds.[45]}}</td>
+                            <td>{{Rank.mostHeroes.[45]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>47</td>
+                            <td>{{Rank.levels.[47]}}</td>
+                            <td>{{Rank.players.[46]}}</td>
+                            <td>{{Rank.ratios.[46]}}</td>
+                            <td>{{Rank.kds.[46]}}</td>
+                            <td>{{Rank.mostHeroes.[46]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>48</td>
+                            <td>{{Rank.levels.[48]}}</td>
+                            <td>{{Rank.players.[47]}}</td>
+                            <td>{{Rank.ratios.[47]}}</td>
+                            <td>{{Rank.kds.[47]}}</td>
+                            <td>{{Rank.mostHeroes.[47]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>49</td>
+                            <td>{{Rank.levels.[49]}}</td>
+                            <td>{{Rank.players.[48]}}</td>
+                            <td>{{Rank.ratios.[48]}}</td>
+                            <td>{{Rank.kds.[48]}}</td>
+                            <td>{{Rank.mostHeroes.[48]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>50</td>
+                            <td>{{Rank.levels.[50]}}</td>
+                            <td>{{Rank.players.[49]}}</td>
+                            <td>{{Rank.ratios.[49]}}</td>
+                            <td>{{Rank.kds.[49]}}</td>
+                            <td>{{Rank.mostHeroes.[49]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>51</td>
+                            <td>{{Rank.levels.[51]}}</td>
+                            <td>{{Rank.players.[50]}}</td>
+                            <td>{{Rank.ratios.[50]}}</td>
+                            <td>{{Rank.kds.[50]}}</td>
+                            <td>{{Rank.mostHeroes.[50]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>52</td>
+                            <td>{{Rank.levels.[52]}}</td>
+                            <td>{{Rank.players.[51]}}</td>
+                            <td>{{Rank.ratios.[51]}}</td>
+                            <td>{{Rank.kds.[51]}}</td>
+                            <td>{{Rank.mostHeroes.[51]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>53</td>
+                            <td>{{Rank.levels.[53]}}</td>
+                            <td>{{Rank.players.[52]}}</td>
+                            <td>{{Rank.ratios.[52]}}</td>
+                            <td>{{Rank.kds.[52]}}</td>
+                            <td>{{Rank.mostHeroes.[52]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>54</td>
+                            <td>{{Rank.levels.[54]}}</td>
+                            <td>{{Rank.players.[53]}}</td>
+                            <td>{{Rank.ratios.[53]}}</td>
+                            <td>{{Rank.kds.[53]}}</td>
+                            <td>{{Rank.mostHeroes.[53]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>55</td>
+                            <td>{{Rank.levels.[55]}}</td>
+                            <td>{{Rank.players.[54]}}</td>
+                            <td>{{Rank.ratios.[54]}}</td>
+                            <td>{{Rank.kds.[54]}}</td>
+                            <td>{{Rank.mostHeroes.[54]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>56</td>
+                            <td>{{Rank.levels.[56]}}</td>
+                            <td>{{Rank.players.[55]}}</td>
+                            <td>{{Rank.ratios.[55]}}</td>
+                            <td>{{Rank.kds.[55]}}</td>
+                            <td>{{Rank.mostHeroes.[55]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>57</td>
+                            <td>{{Rank.levels.[57]}}</td>
+                            <td>{{Rank.players.[56]}}</td>
+                            <td>{{Rank.ratios.[56]}}</td>
+                            <td>{{Rank.kds.[56]}}</td>
+                            <td>{{Rank.mostHeroes.[56]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>58</td>
+                            <td>{{Rank.levels.[58]}}</td>
+                            <td>{{Rank.players.[57]}}</td>
+                            <td>{{Rank.ratios.[57]}}</td>
+                            <td>{{Rank.kds.[57]}}</td>
+                            <td>{{Rank.mostHeroes.[57]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>59</td>
+                            <td>{{Rank.levels.[59]}}</td>
+                            <td>{{Rank.players.[58]}}</td>
+                            <td>{{Rank.ratios.[58]}}</td>
+                            <td>{{Rank.kds.[58]}}</td>
+                            <td>{{Rank.mostHeroes.[58]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>60</td>
+                            <td>{{Rank.levels.[60]}}</td>
+                            <td>{{Rank.players.[59]}}</td>
+                            <td>{{Rank.ratios.[59]}}</td>
+                            <td>{{Rank.kds.[59]}}</td>
+                            <td>{{Rank.mostHeroes.[59]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>61</td>
+                            <td>{{Rank.levels.[61]}}</td>
+                            <td>{{Rank.players.[60]}}</td>
+                            <td>{{Rank.ratios.[60]}}</td>
+                            <td>{{Rank.kds.[60]}}</td>
+                            <td>{{Rank.mostHeroes.[60]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>62</td>
+                            <td>{{Rank.levels.[62]}}</td>
+                            <td>{{Rank.players.[61]}}</td>
+                            <td>{{Rank.ratios.[61]}}</td>
+                            <td>{{Rank.kds.[61]}}</td>
+                            <td>{{Rank.mostHeroes.[61]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>63</td>
+                            <td>{{Rank.levels.[63]}}</td>
+                            <td>{{Rank.players.[62]}}</td>
+                            <td>{{Rank.ratios.[62]}}</td>
+                            <td>{{Rank.kds.[62]}}</td>
+                            <td>{{Rank.mostHeroes.[62]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>64</td>
+                            <td>{{Rank.levels.[64]}}</td>
+                            <td>{{Rank.players.[63]}}</td>
+                            <td>{{Rank.ratios.[63]}}</td>
+                            <td>{{Rank.kds.[63]}}</td>
+                            <td>{{Rank.mostHeroes.[63]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>65</td>
+                            <td>{{Rank.levels.[65]}}</td>
+                            <td>{{Rank.players.[64]}}</td>
+                            <td>{{Rank.ratios.[64]}}</td>
+                            <td>{{Rank.kds.[64]}}</td>
+                            <td>{{Rank.mostHeroes.[64]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>66</td>
+                            <td>{{Rank.levels.[66]}}</td>
+                            <td>{{Rank.players.[65]}}</td>
+                            <td>{{Rank.ratios.[65]}}</td>
+                            <td>{{Rank.kds.[65]}}</td>
+                            <td>{{Rank.mostHeroes.[65]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>67</td>
+                            <td>{{Rank.levels.[67]}}</td>
+                            <td>{{Rank.players.[66]}}</td>
+                            <td>{{Rank.ratios.[66]}}</td>
+                            <td>{{Rank.kds.[66]}}</td>
+                            <td>{{Rank.mostHeroes.[66]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>68</td>
+                            <td>{{Rank.levels.[68]}}</td>
+                            <td>{{Rank.players.[67]}}</td>
+                            <td>{{Rank.ratios.[67]}}</td>
+                            <td>{{Rank.kds.[67]}}</td>
+                            <td>{{Rank.mostHeroes.[67]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>69</td>
+                            <td>{{Rank.levels.[69]}}</td>
+                            <td>{{Rank.players.[68]}}</td>
+                            <td>{{Rank.ratios.[68]}}</td>
+                            <td>{{Rank.kds.[68]}}</td>
+                            <td>{{Rank.mostHeroes.[68]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>70</td>
+                            <td>{{Rank.levels.[70]}}</td>
+                            <td>{{Rank.players.[69]}}</td>
+                            <td>{{Rank.ratios.[69]}}</td>
+                            <td>{{Rank.kds.[69]}}</td>
+                            <td>{{Rank.mostHeroes.[69]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>71</td>
+                            <td>{{Rank.levels.[71]}}</td>
+                            <td>{{Rank.players.[70]}}</td>
+                            <td>{{Rank.ratios.[70]}}</td>
+                            <td>{{Rank.kds.[70]}}</td>
+                            <td>{{Rank.mostHeroes.[70]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>72</td>
+                            <td>{{Rank.levels.[72]}}</td>
+                            <td>{{Rank.players.[71]}}</td>
+                            <td>{{Rank.ratios.[71]}}</td>
+                            <td>{{Rank.kds.[71]}}</td>
+                            <td>{{Rank.mostHeroes.[71]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>73</td>
+                            <td>{{Rank.levels.[73]}}</td>
+                            <td>{{Rank.players.[72]}}</td>
+                            <td>{{Rank.ratios.[72]}}</td>
+                            <td>{{Rank.kds.[72]}}</td>
+                            <td>{{Rank.mostHeroes.[72]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>74</td>
+                            <td>{{Rank.levels.[74]}}</td>
+                            <td>{{Rank.players.[73]}}</td>
+                            <td>{{Rank.ratios.[73]}}</td>
+                            <td>{{Rank.kds.[73]}}</td>
+                            <td>{{Rank.mostHeroes.[73]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>75</td>
+                            <td>{{Rank.levels.[75]}}</td>
+                            <td>{{Rank.players.[74]}}</td>
+                            <td>{{Rank.ratios.[74]}}</td>
+                            <td>{{Rank.kds.[74]}}</td>
+                            <td>{{Rank.mostHeroes.[74]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>76</td>
+                            <td>{{Rank.levels.[76]}}</td>
+                            <td>{{Rank.players.[75]}}</td>
+                            <td>{{Rank.ratios.[75]}}</td>
+                            <td>{{Rank.kds.[75]}}</td>
+                            <td>{{Rank.mostHeroes.[75]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>77</td>
+                            <td>{{Rank.levels.[77]}}</td>
+                            <td>{{Rank.players.[76]}}</td>
+                            <td>{{Rank.ratios.[76]}}</td>
+                            <td>{{Rank.kds.[76]}}</td>
+                            <td>{{Rank.mostHeroes.[76]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>78</td>
+                            <td>{{Rank.levels.[78]}}</td>
+                            <td>{{Rank.players.[77]}}</td>
+                            <td>{{Rank.ratios.[77]}}</td>
+                            <td>{{Rank.kds.[77]}}</td>
+                            <td>{{Rank.mostHeroes.[77]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>79</td>
+                            <td>{{Rank.levels.[79]}}</td>
+                            <td>{{Rank.players.[78]}}</td>
+                            <td>{{Rank.ratios.[78]}}</td>
+                            <td>{{Rank.kds.[78]}}</td>
+                            <td>{{Rank.mostHeroes.[78]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>80</td>
+                            <td>{{Rank.levels.[80]}}</td>
+                            <td>{{Rank.players.[79]}}</td>
+                            <td>{{Rank.ratios.[79]}}</td>
+                            <td>{{Rank.kds.[79]}}</td>
+                            <td>{{Rank.mostHeroes.[79]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>81</td>
+                            <td>{{Rank.levels.[81]}}</td>
+                            <td>{{Rank.players.[80]}}</td>
+                            <td>{{Rank.ratios.[80]}}</td>
+                            <td>{{Rank.kds.[80]}}</td>
+                            <td>{{Rank.mostHeroes.[80]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>82</td>
+                            <td>{{Rank.levels.[82]}}</td>
+                            <td>{{Rank.players.[81]}}</td>
+                            <td>{{Rank.ratios.[81]}}</td>
+                            <td>{{Rank.kds.[81]}}</td>
+                            <td>{{Rank.mostHeroes.[81]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>83</td>
+                            <td>{{Rank.levels.[83]}}</td>
+                            <td>{{Rank.players.[82]}}</td>
+                            <td>{{Rank.ratios.[82]}}</td>
+                            <td>{{Rank.kds.[82]}}</td>
+                            <td>{{Rank.mostHeroes.[82]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>84</td>
+                            <td>{{Rank.levels.[84]}}</td>
+                            <td>{{Rank.players.[83]}}</td>
+                            <td>{{Rank.ratios.[83]}}</td>
+                            <td>{{Rank.kds.[83]}}</td>
+                            <td>{{Rank.mostHeroes.[83]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>85</td>
+                            <td>{{Rank.levels.[85]}}</td>
+                            <td>{{Rank.players.[84]}}</td>
+                            <td>{{Rank.ratios.[84]}}</td>
+                            <td>{{Rank.kds.[84]}}</td>
+                            <td>{{Rank.mostHeroes.[84]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>86</td>
+                            <td>{{Rank.levels.[86]}}</td>
+                            <td>{{Rank.players.[85]}}</td>
+                            <td>{{Rank.ratios.[85]}}</td>
+                            <td>{{Rank.kds.[85]}}</td>
+                            <td>{{Rank.mostHeroes.[85]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>87</td>
+                            <td>{{Rank.levels.[87]}}</td>
+                            <td>{{Rank.players.[86]}}</td>
+                            <td>{{Rank.ratios.[86]}}</td>
+                            <td>{{Rank.kds.[86]}}</td>
+                            <td>{{Rank.mostHeroes.[86]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>88</td>
+                            <td>{{Rank.levels.[88]}}</td>
+                            <td>{{Rank.players.[87]}}</td>
+                            <td>{{Rank.ratios.[87]}}</td>
+                            <td>{{Rank.kds.[87]}}</td>
+                            <td>{{Rank.mostHeroes.[87]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>89</td>
+                            <td>{{Rank.levels.[89]}}</td>
+                            <td>{{Rank.players.[88]}}</td>
+                            <td>{{Rank.ratios.[88]}}</td>
+                            <td>{{Rank.kds.[88]}}</td>
+                            <td>{{Rank.mostHeroes.[88]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>90</td>
+                            <td>{{Rank.levels.[90]}}</td>
+                            <td>{{Rank.players.[89]}}</td>
+                            <td>{{Rank.ratios.[89]}}</td>
+                            <td>{{Rank.kds.[89]}}</td>
+                            <td>{{Rank.mostHeroes.[89]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>91</td>
+                            <td>{{Rank.levels.[91]}}</td>
+                            <td>{{Rank.players.[90]}}</td>
+                            <td>{{Rank.ratios.[90]}}</td>
+                            <td>{{Rank.kds.[90]}}</td>
+                            <td>{{Rank.mostHeroes.[90]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>92</td>
+                            <td>{{Rank.levels.[92]}}</td>
+                            <td>{{Rank.players.[91]}}</td>
+                            <td>{{Rank.ratios.[91]}}</td>
+                            <td>{{Rank.kds.[91]}}</td>
+                            <td>{{Rank.mostHeroes.[91]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>93</td>
+                            <td>{{Rank.levels.[93]}}</td>
+                            <td>{{Rank.players.[92]}}</td>
+                            <td>{{Rank.ratios.[92]}}</td>
+                            <td>{{Rank.kds.[92]}}</td>
+                            <td>{{Rank.mostHeroes.[92]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>94</td>
+                            <td>{{Rank.levels.[94]}}</td>
+                            <td>{{Rank.players.[93]}}</td>
+                            <td>{{Rank.ratios.[93]}}</td>
+                            <td>{{Rank.kds.[93]}}</td>
+                            <td>{{Rank.mostHeroes.[93]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>95</td>
+                            <td>{{Rank.levels.[95]}}</td>
+                            <td>{{Rank.players.[94]}}</td>
+                            <td>{{Rank.ratios.[94]}}</td>
+                            <td>{{Rank.kds.[94]}}</td>
+                            <td>{{Rank.mostHeroes.[94]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>96</td>
+                            <td>{{Rank.levels.[96]}}</td>
+                            <td>{{Rank.players.[95]}}</td>
+                            <td>{{Rank.ratios.[95]}}</td>
+                            <td>{{Rank.kds.[95]}}</td>
+                            <td>{{Rank.mostHeroes.[95]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>97</td>
+                            <td>{{Rank.levels.[97]}}</td>
+                            <td>{{Rank.players.[96]}}</td>
+                            <td>{{Rank.ratios.[96]}}</td>
+                            <td>{{Rank.kds.[96]}}</td>
+                            <td>{{Rank.mostHeroes.[96]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>98</td>
+                            <td>{{Rank.levels.[98]}}</td>
+                            <td>{{Rank.players.[97]}}</td>
+                            <td>{{Rank.ratios.[97]}}</td>
+                            <td>{{Rank.kds.[97]}}</td>
+                            <td>{{Rank.mostHeroes.[97]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>99</td>
+                            <td>{{Rank.levels.[99]}}</td>
+                            <td>{{Rank.players.[98]}}</td>
+                            <td>{{Rank.ratios.[98]}}</td>
+                            <td>{{Rank.kds.[98]}}</td>
+                            <td>{{Rank.mostHeroes.[98]}}</td>
+                        </tr>
+                        <tr class="col">
+                            <td>100</td>
+                            <td>{{Rank.levels.[100]}}</td>
+                            <td>{{Rank.players.[99]}}</td>
+                            <td>{{Rank.ratios.[99]}}</td>
+                            <td>{{Rank.kds.[99]}}</td>
+                            <td>{{Rank.mostHeroes.[99]}}</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © Your Website 2018</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="/js/sb-admin-datatables.min.js"></script>
+    <script src="/js/od-rank.js"></script>
+</div>
+</body>
+
+</html>

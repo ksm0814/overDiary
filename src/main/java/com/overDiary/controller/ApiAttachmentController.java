@@ -1,7 +1,6 @@
 package com.overDiary.controller;
 
 import com.overDiary.domain.Attachment;
-import com.overDiary.service.ArticleService;
 import com.overDiary.service.AttachmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,14 +20,11 @@ public class ApiAttachmentController {
     @Resource(name = "attachmentService")
     AttachmentService attachmentService;
 
-    @Resource(name = "articleService")
-    ArticleService articleService;
 
     @PostMapping("")
-    public Attachment upload(@RequestParam("file") MultipartFile file, long articleKey) throws Exception {
+    public Attachment upload(@RequestParam("file") MultipartFile file) throws Exception {
         log.info("im here : {}", file.getOriginalFilename());
         Attachment attachment = attachmentService.saveFile(file);
-        articleService.setAttachment(articleKey, attachment);
         return attachment;
     }
 

@@ -6,7 +6,6 @@ $("#article-label a").click(function(){
 
 $("input[id='file-label']").change(function (e) {
     var $this = $(this);
-    console.log($(this));
     $this.next().html($this.val().split('\\').pop());
 });
 
@@ -28,9 +27,10 @@ function addFile(e){
         contentType: false,
         processData: false,
         success: function (data) {
-            console.log("SUCCESS : ", data);
-            alert("파일 업로드가 완료되었습니다!");
-            $("#file-label").val("");
+            console.log("SUCCESS : ", data.attachmentKey);
+            $("#filePath-hidden").val(data.attachmentKey);
+
+            alert("파일 업로드를 성공적으로 마쳤습니다! : ");
         },
         error: function (e) {
             alert("파일 업로드를 실패했습니다. 다시 시도해주세요");
