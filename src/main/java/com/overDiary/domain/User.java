@@ -31,6 +31,18 @@ public class User extends AbstractEntity {
     @Column
     private String email;
 
+    @Column
+    private String gameId;
+
+    @Column
+    private String gameBattletag;
+
+    @Column
+    private String chartHeroes;
+
+    @Column
+    private String chartPlayTime;
+
     public User(){
 
     }
@@ -75,6 +87,38 @@ public class User extends AbstractEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
+    }
+
+    public String getGameBattletag() {
+        return gameBattletag;
+    }
+
+    public void setGameBattletag(String gameBattletag) {
+        this.gameBattletag = gameBattletag;
+    }
+
+    public String getChartHeroes() {
+        return chartHeroes;
+    }
+
+    public void setChartHeroes(String chartHeroes) {
+        this.chartHeroes = chartHeroes;
+    }
+
+    public String getChartPlayTime() {
+        return chartPlayTime;
+    }
+
+    public void setChartPlayTime(String chartPlayTime) {
+        this.chartPlayTime = chartPlayTime;
     }
 
     public boolean isSamePassword(String password){

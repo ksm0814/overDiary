@@ -1,6 +1,7 @@
 package com.overDiary.controller;
 
 import com.overDiary.domain.Article;
+import com.overDiary.helper.HttpSessionUtils;
 import com.overDiary.service.ArticleService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("")
@@ -19,9 +21,10 @@ public class HomeController {
     ArticleService articleService;
 
     @GetMapping("")
-    public String welcome(Model model) {
+    public String welcome(Model model, HttpSession session) {
         Iterable<Article> articles = articleService.findAll();
         model.addAttribute("Articles", articles);
+        model.addAttribute("Session", session.getAttribute(HttpSessionUtils.SESSION_KEY));
         return "/home/index";
     }
 }

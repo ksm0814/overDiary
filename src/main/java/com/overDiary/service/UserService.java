@@ -36,4 +36,13 @@ public class UserService {
            throw new UserException("비밀번호가 맞지 않습니다");
         return findByUserId(userId);
     }
+
+    public User setGameInfo(long userKey) {
+        User loginUser = userRepository.findOne(userKey);
+        loginUser.setGameId("Link");
+        loginUser.setGameBattletag("31107");
+        return userRepository.save(loginUser);
+    }
+
+
 }

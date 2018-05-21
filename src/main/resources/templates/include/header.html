@@ -29,16 +29,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #43484c;">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion" style="background-color: #43484c;">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="index.html">
-                    <i class="fa fa-fw fa-dashboard" style="color: #218ffe;"></i>
-                    <span class="nav-link-text" style="background-color: #43484c;color: #f99e1a;">Dashboard</span>
-                </a>
-            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                <a class="nav-link" href="/ranks">
+                <a class="nav-link" href="/">
                     <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text" style="background-color: #43484c;color: #f99e1a;">랭킹</span>
+                    <span class="nav-link-text" style="background-color: #43484c;color: #f99e1a;">Component</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -51,14 +45,14 @@
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
                    data-parent="#exampleAccordion">
                     <i class="fa fa-comments"></i>
-                    <span class="nav-link-text" style="background-color: #43484c;color: #f99e1a;">Components</span>
+                    <span class="nav-link-text" style="background-color: #43484c;color: #f99e1a;">랭크</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="navbar.html">자유게시판</a>
-                    </li>=
+                        <a href="/ranks/show">내 기록</a>
+                    </li>
                     <li>
-                        <a href="cards.html">공략 </a>
+                        <a href="/ranks">명예의 전당</a>
                     </li>
                 </ul>
             </li>
@@ -117,9 +111,9 @@
                 </ul>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="https://github.com/ksm0814">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Link</span>
+                    <span class="nav-link-text">Github</span>
                 </a>
             </li>
         </ul>
@@ -235,20 +229,24 @@
                     </div>
                 </form>
             </li>
+            {{#Session}}
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
+            {{/Session}}
             <li class="nav-item">
                 <a class="nav-link" href="/users/form">
                     Register
                 </a>
             </li>
+            {{^Session}}
             <li class="nav-item">
                 <a class="nav-link" href="/users/loginForm">
                     Login
                 </a>
             </li>
+            {{/Session}}
         </ul>
     </div>
 </nav>
