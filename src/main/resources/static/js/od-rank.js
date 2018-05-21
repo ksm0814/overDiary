@@ -21,7 +21,7 @@ $('#btn-chart').submit(function(e){
     var showRankUrl = this.closest("#form-chart").attr("action");
     console.log(showRankUrl);
     $.ajax({
-        type: 'post',
+        type: 'get',
         url: showRankUrl,
         dataType: 'json',
         error: function (xhr, status) {
