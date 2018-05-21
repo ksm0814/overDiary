@@ -24,6 +24,12 @@ import java.util.List;
 public class ArticleController {
     private static final Logger log = LoggerFactory.getLogger(ArticleController.class);
 
+    // 내일 할거
+    // 이름#배틀태그   방식으로 검색해서 정보 띄워주기 (모스트픽, 승률 정도??)
+    // 정보 활용해서 차트 쓰는법 고안
+    // 알람에 오버워치 소식을 간단하게 띄우고 navbar에 소식통을 넣어서 자세히 볼숭있게
+    // comment 기능 추가
+
     @Resource(name = "articleService")
     ArticleService articleService;
 

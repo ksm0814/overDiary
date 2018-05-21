@@ -1,6 +1,9 @@
 package com.overDiary.controller;
 
+import com.overDiary.domain.User;
+import com.overDiary.helper.LoginUser;
 import com.overDiary.service.RankService;
+import com.overDiary.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,10 +21,19 @@ public class RankController {
     @Resource(name = "rankService")
     RankService rankService;
 
+    @Resource(name = "userService")
+    UserService userService;
+
     @GetMapping("")
     public String showHighRanker(Model model) throws Exception {
-        model.addAttribute("Rank", rankService.createRankBoard());
+        model.addAttribute("Rank",rankService.createRankBoard());
         return "/rank/list";
+    }
+
+    @GetMapping("/show")
+    public String showMyRank(@LoginUser User loginUser,  Model model) throws Exception{
+        model.addAttribute("User", loginUser);
+        return "/rank/charts";
     }
 
 }
