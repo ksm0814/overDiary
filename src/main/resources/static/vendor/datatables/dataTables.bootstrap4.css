@@ -9,6 +9,7 @@ table.dataTable td,
 table.dataTable th {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+  background-color: #1b1e21;
 }
 table.dataTable td.dataTables_empty,
 table.dataTable th.dataTables_empty {
@@ -175,6 +176,7 @@ table.dataTable.table-sm .sorting_desc:after {
 
 table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
+  color:#1b1e21;
   border-left-width: 0;
 }
 table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,
