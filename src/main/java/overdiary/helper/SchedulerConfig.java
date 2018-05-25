@@ -47,7 +47,6 @@ public class SchedulerConfig {
     @Bean
     public SimpleTriggerFactoryBean simpleJobTrigger(@Qualifier("simpleJobDetail") JobDetail jobDetail,
                                                      @Value("${simplejob.frequency}") long frequency) {
-        LOG.info("simpleJobTrigger");
 
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
         factoryBean.setJobDetail(jobDetail);
@@ -68,7 +67,7 @@ public class SchedulerConfig {
     @Bean
     public JobDetailFactoryBean simpleJobDetail() {
         JobDetailFactoryBean factoryBean = new JobDetailFactoryBean();
-        factoryBean.setJobClass(SimpleJob.class);
+        factoryBean.setJobClass(RankCrawler.class);
         factoryBean.setDurability(true);
         return factoryBean;
     }

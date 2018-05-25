@@ -1,5 +1,6 @@
 package overdiary.controller;
 
+import org.quartz.Job;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -15,14 +16,12 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/ranks")
-public class RankController {
+public class RankController{
     private static final Logger log = LoggerFactory.getLogger(RankController.class);
 
     @Resource(name = "rankService")
-    RankService rankService;
+    private RankService rankService;
 
-    @Resource(name = "userService")
-    UserService userService;
 
     @GetMapping("")
     public String showHighRanker(Model model) throws Exception {
