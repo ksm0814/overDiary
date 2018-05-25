@@ -1,5 +1,7 @@
 package overdiary.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,8 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/api/articles")
 public class ApiArticleController {
+    private static final Logger log = LoggerFactory.getLogger(ApiArticleController.class);
+
 
     @Resource(name = "articleService")
     ArticleService articleService;
@@ -19,6 +23,12 @@ public class ApiArticleController {
     @GetMapping("/{articleKey}")
     public Article show(@PathVariable long articleKey) {
         return articleService.findById(articleKey);
+    }
+
+    @GetMapping("/updateAlarm")
+    public Article showRecent(){
+        log.info("im gere");
+        return articleService.getUpdate();
     }
 
 }

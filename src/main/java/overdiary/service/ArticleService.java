@@ -52,4 +52,16 @@ public class ArticleService {
         article.setViews();
         return article;
     }
+
+    public Article getUpdate() {
+//        Iterable<Article> recent = articleRepository.findAll();
+//        List<Article> articles = new ArrayList<>();
+//        int maxCount = 5;
+//        while(recent.iterator().hasNext() || maxCount != 0){
+//            articles.add(recent.iterator().next());
+//            maxCount -= 1;
+//        }
+        return articleRepository.findByTitle("test title1").get(0);
+
+    }
 }
