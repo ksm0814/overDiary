@@ -1,0 +1,93 @@
+{{>include/header}}
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Blank Page</li>
+        </ol>
+        {{#Article}}
+        <div class="row">
+            <div class="col-10">
+                <h1>{{title}}</h1> <span class="badge badge-secondary">{{label}}</span>
+            </div>
+        </div>
+        <br/><br/>
+        <span class="d-block p-2 bg-primary text-white">
+        <div class="row">
+            <div class="col-2">
+                {{createdDate}}
+            </div>
+            <div class="col-6">
+                <p class="font-weight-bold">{{title}}</p>
+            </div>
+            <div class="col-2">
+                조회 {{views}}
+            </div>
+            <div class="col-2">
+                댓글
+            </div>
+        </div>
+            </span>
+        <br/>
+        <div class="d-lg-table-row">
+            <div class="col-xl-12">
+                {{contents}}
+            </div>
+        </div>
+    </div>
+    <br/>
+    {{#attachments}}
+    <div class="row-">
+        <div class="col-sm-12">
+            <img src="/images/{{fileName}}" class="img-fluid" alt="attachment">
+        </div>
+    </div>
+    {{/attachments}}
+    <br/><br/>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © Your Website 2018</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/Article}}
+    <!-- Bootstrap core JavaScript-->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/js/sb-admin.min.js"></script>
+</div>
+</body>
+
+</html>
