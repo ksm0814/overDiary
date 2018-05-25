@@ -46,7 +46,7 @@ public class SchedulerConfig {
 
     @Bean
     public SimpleTriggerFactoryBean simpleJobTrigger(@Qualifier("simpleJobDetail") JobDetail jobDetail,
-                                                     @Value("${simplejob.frequency}") long frequency) {
+                                                     @Value("${crawljob.frequency}") long frequency) {
 
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
         factoryBean.setJobDetail(jobDetail);
