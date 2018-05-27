@@ -108,6 +108,7 @@ public class Article extends AbstractEntity {
         return attachments;
     }
 
+
     public void setDto(ArticleDto articleDto) {
         this.title = articleDto.getTitle();
         this.contents = articleDto.getContents();
