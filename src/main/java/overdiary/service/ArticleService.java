@@ -54,6 +54,7 @@ public class ArticleService {
     }
 
     public Article getUpdate() {
+
 //        Iterable<Article> recent = articleRepository.findAll();
 //        List<Article> articles = new ArrayList<>();
 //        int maxCount = 5;
