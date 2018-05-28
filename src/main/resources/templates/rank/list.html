@@ -17,9 +17,9 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped"
-                           style="background-color: #43484c;color: black;border-color:#f99e1a;font-weight: bold">
+                           style="border-color:#f99e1a;font-weight: bold">
                         <thead>
-                        <tr style="color: white">
+                        <tr style="background-color: black;color: white">
                             <th scope="col">순위</th>
                             <th scope="col">레벨</th>
                             <th scope="col">플레이어</th>
@@ -32,13 +32,13 @@
                         <tbody class="bg-side">
                         {{#Rank}}
                         <tr class="col">
-                            <td>{{rankKey}}</td>
-                            <td>{{levels}}</td>
-                            <td>{{players}}</td>
-                            <td>{{scores}}</td>
-                            <td>{{fireTimes}}</td>
-                            <td>{{kds}}</td>
-                            <td>{{mostHeroes}}</td>
+                            <td style="background-color: #f99e1a">{{rankKey}}</td>
+                            <td style="background-color: #f99e1a">{{levels}}</td>
+                            <td style="background-color: #f99e1a">{{players}}</td>
+                            <td style="background-color: #f99e1a">{{scores}}</td>
+                            <td style="background-color: #f99e1a">{{fireTimes}}</td>
+                            <td style="background-color: #f99e1a">{{kds}}</td>
+                            <td style="background-color: #f99e1a">{{mostHeroes}}</td>
                         </tr>
                         {{/Rank}}
                         </tbody>

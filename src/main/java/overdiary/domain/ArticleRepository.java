@@ -8,4 +8,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByTitle(String title);
 
     List<Article> findByLabel(String label);
+
+    List<Article> findByisNewArticle(boolean isNewArticle);
 }

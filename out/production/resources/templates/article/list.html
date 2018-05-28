@@ -18,7 +18,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-dark" id="dataTable">
+                    <table class="table table-striped table-dark" id="dataTable" >
                         <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -39,12 +39,12 @@
                         </tfoot>
                         <tbody class = "bg-warning">
                         {{#Articles}}
-                        <tr style="color:black; font-weight:bolder ">
-                            <td scope="row">{{articleKey}}</td>
-                            <td>{{label}}</td>
-                            <td><a href="/articles/{{articleKey}}">{{title}}</a></td>
-                            <td>{{writer.name}}</td>
-                            <td>{{createdDate}}</td>
+                        <tr style="font-weight:bolder;color:black;">
+                            <td scope="row" style="background-color: #f99e1a">{{articleKey}}</td>
+                            <td style="background-color: #f99e1a">{{label}}</td>
+                            <td style="background-color: #f99e1a"><a href="/articles/{{articleKey}}">{{title}}</a></td>
+                            <td style="background-color: #f99e1a">{{writer.name}}</td>
+                            <td style="background-color: #f99e1a">{{createdDate}}</td>
                         </tr>
                         {{/Articles}}
                         </tbody>

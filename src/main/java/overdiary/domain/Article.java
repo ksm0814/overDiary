@@ -29,6 +29,9 @@ public class Article extends AbstractEntity {
     @Column
     private int views = 0;
 
+    @Column
+    private boolean isNewArticle = true;
+
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
     @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Attachment> attachments = new ArrayList<>();
@@ -108,6 +111,13 @@ public class Article extends AbstractEntity {
         return attachments;
     }
 
+    public boolean isNewArticle() {
+        return isNewArticle;
+    }
+
+    public void setNewArticle(boolean newArticle) {
+        isNewArticle = newArticle;
+    }
 
     public void setDto(ArticleDto articleDto) {
         this.title = articleDto.getTitle();

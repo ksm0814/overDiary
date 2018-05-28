@@ -1,5 +1,6 @@
 package overdiary.service;
 
+import jdk.nashorn.internal.objects.NativeArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import overdiary.dto.ArticleDto;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -53,16 +55,14 @@ public class ArticleService {
         return article;
     }
 
-    public Article getUpdate() {
-
-//        Iterable<Article> recent = articleRepository.findAll();
-//        List<Article> articles = new ArrayList<>();
-//        int maxCount = 5;
-//        while(recent.iterator().hasNext() || maxCount != 0){
-//            articles.add(recent.iterator().next());
-//            maxCount -= 1;
-//        }
-        return articleRepository.findByTitle("test title1").get(0);
+    @Transactional
+    public List<Article> getUpdate() {
+        List<Article> newArticles = new ArrayList<>();
+        List<Article> articles = articleRepository.findByisNewArticle(true);
+        for (int i = articles.size() - 1; i > articles.size() - 6; i--) {
+            newArticles.add(articles.get(i));
+        }
+        return newArticles;
 
     }
 }
