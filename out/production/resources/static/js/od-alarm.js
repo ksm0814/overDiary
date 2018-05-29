@@ -23,7 +23,7 @@
             },
             complete: poll
         });
-    }, 5000);
+    }, 10000);
 })();
 
 String.prototype.format = function () {
@@ -32,4 +32,7 @@ String.prototype.format = function () {
         return typeof args[number] != 'undefined' ? args[number] : match;
     });
 };
+
+
+$("#alerts-Dropdown").dropdown();
 

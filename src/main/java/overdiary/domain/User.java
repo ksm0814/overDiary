@@ -43,6 +43,8 @@ public class User extends AbstractEntity {
     @Column
     private String chartPlayTime;
 
+
+
     public User(){
 
     }

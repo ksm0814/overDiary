@@ -2,7 +2,6 @@ package overdiary.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +10,6 @@ import overdiary.domain.Article;
 import overdiary.service.ArticleService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 
@@ -30,9 +28,7 @@ public class ApiArticleController{
     }
 
     @GetMapping("/updateAlarm")
-    public List<Article> showRecent(HttpServletResponse response){
-
-        log.info("im gere");
+    public List<Article> showRecent(){
         return articleService.getUpdate();
     }
 

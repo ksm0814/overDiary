@@ -1,6 +1,5 @@
 package overdiary.service;
 
-import jdk.nashorn.internal.objects.NativeArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -58,7 +57,7 @@ public class ArticleService {
     @Transactional
     public List<Article> getUpdate() {
         List<Article> newArticles = new ArrayList<>();
-        List<Article> articles = articleRepository.findByisNewArticle(true);
+        List<Article> articles = articleRepository.findAll();
         for (int i = articles.size() - 1; i > articles.size() - 6; i--) {
             newArticles.add(articles.get(i));
         }
