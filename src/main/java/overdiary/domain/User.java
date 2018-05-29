@@ -44,7 +44,6 @@ public class User extends AbstractEntity {
     private String chartPlayTime;
 
 
-
     public User(){
 
     }
