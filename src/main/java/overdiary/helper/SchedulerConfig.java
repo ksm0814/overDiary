@@ -3,6 +3,7 @@ package overdiary.helper;
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
 import org.quartz.spi.JobFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,8 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import java.io.IOException;
 import java.util.Properties;
 
+import static org.quartz.CronScheduleBuilder.cronSchedule;
+
 
 @Configuration
 public class SchedulerConfig {
@@ -34,12 +37,17 @@ public class SchedulerConfig {
     }
 
     @Bean
-    public SchedulerFactoryBean schedulerFactoryBean(JobFactory jobFactory, Trigger simpleJobTrigger)
+    public SchedulerFactoryBean schedulerFactoryBean(JobFactory jobFactory, @Qualifier("simpleJobDetail") JobDetail jobDetail)
             throws IOException {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setJobFactory(jobFactory);
         factory.setQuartzProperties(quartzProperties());
-        factory.setTriggers(simpleJobTrigger);
+        Trigger trigger = TriggerBuilder.newTrigger()
+                .withIdentity("new cron instance")
+                .withSchedule(cronSchedule("0 20 18 * * ?"))
+                .forJob(jobDetail)
+                .build();
+        factory.setTriggers(trigger);
         LOG.info("starting jobs....");
         return factory;
     }
@@ -47,7 +55,6 @@ public class SchedulerConfig {
     @Bean
     public SimpleTriggerFactoryBean simpleJobTrigger(@Qualifier("simpleJobDetail") JobDetail jobDetail,
                                                      @Value("${crawljob.frequency}") long frequency) {
-
         SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
         factoryBean.setJobDetail(jobDetail);
         factoryBean.setStartDelay(0L);

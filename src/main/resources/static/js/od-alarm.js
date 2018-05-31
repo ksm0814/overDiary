@@ -23,7 +23,7 @@
             },
             complete: poll
         });
-    }, 10000);
+    }, 5000);
 })();
 
 String.prototype.format = function () {
