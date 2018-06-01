@@ -1,12 +1,10 @@
 package overdiary.helper;
 
-import org.quartz.JobDetail;
-import org.quartz.SimpleTrigger;
-import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
+import org.quartz.*;
 import org.quartz.spi.JobFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
@@ -14,11 +12,14 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
@@ -28,6 +29,10 @@ import static org.quartz.CronScheduleBuilder.cronSchedule;
 public class SchedulerConfig {
 
     private static final Logger LOG = LoggerFactory.getLogger(SchedulerConfig.class);
+
+    @Autowired
+    @Qualifier("exampleCronJobTrigger")
+    private Trigger cronJobTrigger;
 
     @Bean
     public JobFactory jobFactory(ApplicationContext applicationContext) {
@@ -42,24 +47,23 @@ public class SchedulerConfig {
         SchedulerFactoryBean factory = new SchedulerFactoryBean();
         factory.setJobFactory(jobFactory);
         factory.setQuartzProperties(quartzProperties());
-        Trigger trigger = TriggerBuilder.newTrigger()
-                .withIdentity("new cron instance")
-                .withSchedule(cronSchedule("0 20 18 * * ?"))
-                .forJob(jobDetail)
-                .build();
-        factory.setTriggers(trigger);
+        factory.setTriggers(cronJobTrigger);
         LOG.info("starting jobs....");
         return factory;
     }
 
-    @Bean
-    public SimpleTriggerFactoryBean simpleJobTrigger(@Qualifier("simpleJobDetail") JobDetail jobDetail,
-                                                     @Value("${crawljob.frequency}") long frequency) {
-        SimpleTriggerFactoryBean factoryBean = new SimpleTriggerFactoryBean();
+    @Bean(name = "exampleCronJobTrigger")
+    public CronTriggerFactoryBean exampleCronJobTrigger(
+            @Qualifier("simpleJobDetail") JobDetail jobDetail,
+            @Value("${job.example.cron.expression}") String expression) {
+        return createCronTrigger(jobDetail, expression);
+    }
+
+    private static CronTriggerFactoryBean createCronTrigger(@Qualifier("simpleJobDetail") JobDetail jobDetail, String expression){
+        CronTriggerFactoryBean factoryBean = new CronTriggerFactoryBean();
         factoryBean.setJobDetail(jobDetail);
-        factoryBean.setStartDelay(0L);
-        factoryBean.setRepeatInterval(frequency);
-        factoryBean.setRepeatCount(SimpleTrigger.REPEAT_INDEFINITELY);
+        factoryBean.setCronExpression(expression);
+        factoryBean.setMisfireInstruction(SimpleTrigger.MISFIRE_INSTRUCTION_FIRE_NOW);
         return factoryBean;
     }
 
