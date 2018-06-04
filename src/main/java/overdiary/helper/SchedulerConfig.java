@@ -1,6 +1,8 @@
 package overdiary.helper;
 
-import org.quartz.*;
+import org.quartz.JobDetail;
+import org.quartz.SimpleTrigger;
+import org.quartz.Trigger;
 import org.quartz.spi.JobFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,14 +17,9 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
-import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Properties;
-
-import static org.quartz.CronScheduleBuilder.cronSchedule;
 
 
 @Configuration
@@ -31,7 +28,7 @@ public class SchedulerConfig {
     private static final Logger LOG = LoggerFactory.getLogger(SchedulerConfig.class);
 
     @Autowired
-    @Qualifier("exampleCronJobTrigger")
+    @Qualifier("CronJobTrigger")
     private Trigger cronJobTrigger;
 
     @Bean
@@ -52,10 +49,10 @@ public class SchedulerConfig {
         return factory;
     }
 
-    @Bean(name = "exampleCronJobTrigger")
-    public CronTriggerFactoryBean exampleCronJobTrigger(
+    @Bean(name = "CronJobTrigger")
+    public CronTriggerFactoryBean CronJobTrigger(
             @Qualifier("simpleJobDetail") JobDetail jobDetail,
-            @Value("${job.example.cron.expression}") String expression) {
+            @Value("${job.cron.expression}") String expression) {
         return createCronTrigger(jobDetail, expression);
     }
 

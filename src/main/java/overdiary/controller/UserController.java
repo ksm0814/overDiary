@@ -30,7 +30,6 @@ public class UserController {
 
     @PostMapping("")
     public String create(String userId, String name, String password, String email) throws Exception {
-        log.info("Saved User : {}", userService.createUser(new UserDto(userId, name, password, email)));
         return "redirect:/";
     }
 
