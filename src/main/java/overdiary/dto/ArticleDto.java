@@ -22,6 +22,7 @@ public class ArticleDto {
 
     }
 
+
     public ArticleDto(String title, String contents, String label, boolean openRange) {
         this.title = title;
         this.contents = contents;

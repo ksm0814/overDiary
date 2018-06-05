@@ -27,6 +27,9 @@ public class Article extends AbstractEntity {
     private boolean openRange = true;
 
     @Column
+    private boolean isOpened = false;
+
+    @Column
     private int views = 0;
 
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
@@ -46,6 +49,14 @@ public class Article extends AbstractEntity {
         this.contents = contents;
         this.label = label;
         this.openRange = openRange;
+    }
+
+    public Article(String title, String contents, String label, boolean openRange, boolean readArticle) {
+        this.title = title;
+        this.contents = contents;
+        this.label = label;
+        this.openRange = openRange;
+        this.isOpened = readArticle;
     }
 
     public long getArticleKey() {
@@ -106,6 +117,14 @@ public class Article extends AbstractEntity {
 
     public List<Attachment> getAttachments() {
         return attachments;
+    }
+
+    public boolean isOpened() {
+        return isOpened;
+    }
+
+    public void setOpened(boolean opened) {
+        isOpened = opened;
     }
 
     public void setDto(ArticleDto articleDto) {
