@@ -27,10 +27,10 @@ public class Article extends AbstractEntity {
     private boolean openRange = true;
 
     @Column
-    private boolean isOpened = false;
+    private int views = 0;
 
     @Column
-    private int views = 0;
+    private boolean isOpened = false;
 
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
     @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
