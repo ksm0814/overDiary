@@ -23,7 +23,6 @@ public class ApiAlarmController {
     @GetMapping("/send")
     public Object sendAlarm(@LoginUser User loginUser) {
         Map<String, Object> sendValue = new HashMap<String, Object>();
-
         sendValue.put("alarmList", alarmService.sendAlarm(loginUser));
         return sendValue;
     }

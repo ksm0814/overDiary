@@ -1,6 +1,9 @@
 package overdiary.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Alarm extends AbstractEntity {
@@ -20,10 +23,12 @@ public class Alarm extends AbstractEntity {
     @Column
     private long articleId;
 
-    Alarm(){}
+
+    Alarm() {
+    }
 
     public Alarm(String message, User targetUser, long articleId) {
-        this.message =  message ;
+        this.message = message;
         this.targetUser = targetUser;
         this.articleId = articleId;
     }

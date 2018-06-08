@@ -47,10 +47,6 @@ public class User extends AbstractEntity {
     @Column
     private String chartPlayTime;
 
-    @OneToMany
-    @JoinColumn
-    private List<Alarm> recentAlarm = new ArrayList<>();
-
 
     public User(){
 
@@ -130,14 +126,6 @@ public class User extends AbstractEntity {
         this.chartPlayTime = chartPlayTime;
     }
 
-    public List<Alarm> getRecentAlarm() {
-        return recentAlarm;
-    }
-
-    public void setRecentAlarm(Alarm alarm) {
-        recentAlarm.add(alarm);
-    }
-
     public boolean isSamePassword(String password){
         return this.password.equals(password);
     }
@@ -169,7 +157,6 @@ public class User extends AbstractEntity {
     public boolean isGuestUser() {
         return false;
     }
-
 
     private static class GuestUser extends User {
         @Override

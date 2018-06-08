@@ -20,20 +20,20 @@ public class AlarmService {
     private AlarmRepository alarmRepository;
 
 
-
-    public Iterable<Alarm> findAll(){
+    public Iterable<Alarm> findAll() {
         return alarmRepository.findAll();
     }
 
     public void create(Article article, Iterable<User> allUser) {
-        for (User user :allUser) {
+        for (User user : allUser) {
             Alarm alarm = new Alarm(article.getTitle(), user, article.getArticleKey());
-            user.setRecentAlarm(alarmRepository.save(alarm));
+            alarmRepository.save(alarm);
         }
     }
 
     public List<Alarm> sendAlarm(User user) {
-        return alarmRepository.findByTargetUser(user);
+        List<Alarm> recentAlarms = alarmRepository.findByTargetUser(user);
+        return recentAlarms;
     }
 
     public void removeAlarm(long alarmKey) {
