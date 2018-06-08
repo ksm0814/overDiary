@@ -28,13 +28,16 @@ public class AlarmService {
     public void create(Article article, Iterable<User> allUser) {
         for (User user :allUser) {
             Alarm alarm = new Alarm(article.getTitle(), user, article.getArticleKey());
-            alarmRepository.save(alarm);
+            user.setRecentAlarm(alarmRepository.save(alarm));
         }
     }
 
     public List<Alarm> sendAlarm(User user) {
-        List<Alarm> alarms =  alarmRepository.findByTargetUser(user);
-        log.info("alarms : {}", alarms);
-        return alarms;
+        return alarmRepository.findByTargetUser(user);
+    }
+
+    public void removeAlarm(long alarmKey) {
+        alarmRepository.delete(alarmKey);
+
     }
 }

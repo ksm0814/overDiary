@@ -10,6 +10,7 @@ import overdiary.helper.SchedulerConfig;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User extends AbstractEntity {
@@ -45,6 +46,10 @@ public class User extends AbstractEntity {
 
     @Column
     private String chartPlayTime;
+
+    @OneToMany
+    @JoinColumn
+    private List<Alarm> recentAlarm = new ArrayList<>();
 
 
     public User(){
@@ -125,17 +130,46 @@ public class User extends AbstractEntity {
         this.chartPlayTime = chartPlayTime;
     }
 
+    public List<Alarm> getRecentAlarm() {
+        return recentAlarm;
+    }
+
+    public void setRecentAlarm(Alarm alarm) {
+        recentAlarm.add(alarm);
+    }
 
     public boolean isSamePassword(String password){
         return this.password.equals(password);
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userKey == user.userKey &&
+                Objects.equals(userId, user.userId) &&
+                Objects.equals(name, user.name) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(gameId, user.gameId) &&
+                Objects.equals(gameBattletag, user.gameBattletag) &&
+                Objects.equals(chartHeroes, user.chartHeroes) &&
+                Objects.equals(chartPlayTime, user.chartPlayTime);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(userKey, userId, name, password, email, gameId, gameBattletag, chartHeroes, chartPlayTime);
+    }
 
     @JsonIgnore
     public boolean isGuestUser() {
         return false;
     }
+
 
     private static class GuestUser extends User {
         @Override

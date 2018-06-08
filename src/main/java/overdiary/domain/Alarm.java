@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity
 public class Alarm extends AbstractEntity {
-    private static final String ALARM_MESSAGE = "새 글이 등록되었습니다! ";
 
     @Column
     @Id
@@ -24,9 +23,13 @@ public class Alarm extends AbstractEntity {
     Alarm(){}
 
     public Alarm(String message, User targetUser, long articleId) {
-        this.message = ALARM_MESSAGE + message ;
+        this.message =  message ;
         this.targetUser = targetUser;
         this.articleId = articleId;
+    }
+
+    public long getAlarmKey() {
+        return alarmKey;
     }
 
     public String getMessage() {
@@ -49,7 +52,4 @@ public class Alarm extends AbstractEntity {
         return articleId;
     }
 
-    public void setArticleId(long articleId) {
-        this.articleId = articleId;
-    }
 }

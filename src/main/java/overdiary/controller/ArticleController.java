@@ -56,6 +56,13 @@ public class ArticleController {
         return "/article/show";
     }
 
+    @GetMapping("/alarm/{articleKey}/{alarmKey}")
+    public String alarmClick(@LoginUser User loginUser, @PathVariable long articleKey, @PathVariable long alarmKey) {
+        log.info("alarm clicked!!: {}. {}", articleKey, alarmKey);
+        alarmService.removeAlarm(alarmKey);
+        return String.format("redirect:/articles/%d", articleKey);
+    }
+
     @GetMapping("/form")
     public String form(Model model) {
 

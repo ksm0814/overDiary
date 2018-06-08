@@ -17,7 +17,7 @@ $("#alerts-Dropdown").click(function(e){
                 var alarmtText = $("#realtime-alarm-template").html();
                 $(".alarm-dropdown-div").fadeOut('fast').remove();
                 $.each(lists, function (index, value) {
-                    var template = alarmtText.format(value.message);
+                    var template = alarmtText.format(value.message, value.articleId, value.alarmKey);
                     $("#alarm-dropdown").append(template).fadeIn(3000);
                 });
             },
