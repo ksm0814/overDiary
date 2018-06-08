@@ -19,7 +19,7 @@ public class UserService {
     @Resource(name = "userRepository")
     UserRepository userRepository;
 
-    Iterable<User> findAllUser() {
+    public Iterable<User> findAllUser() {
         return userRepository.findAll();
     }
 

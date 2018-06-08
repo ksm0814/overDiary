@@ -17,7 +17,7 @@ public class Article extends AbstractEntity {
     @Column
     private String title;
 
-    @Column(columnDefinition="LONGTEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String contents;
 
     @Column
@@ -29,18 +29,18 @@ public class Article extends AbstractEntity {
     @Column
     private int views = 0;
 
-    @Column
-    private boolean isOpened = false;
 
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_attach"))
-    @OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Attachment> attachments = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_article_writer"))
     private User writer;
 
-    public Article(){
+
+
+    public Article() {
 
     }
 
@@ -51,13 +51,6 @@ public class Article extends AbstractEntity {
         this.openRange = openRange;
     }
 
-    public Article(String title, String contents, String label, boolean openRange, boolean readArticle) {
-        this.title = title;
-        this.contents = contents;
-        this.label = label;
-        this.openRange = openRange;
-        this.isOpened = readArticle;
-    }
 
     public long getArticleKey() {
         return articleKey;
@@ -119,13 +112,6 @@ public class Article extends AbstractEntity {
         return attachments;
     }
 
-    public boolean isOpened() {
-        return isOpened;
-    }
-
-    public void setOpened(boolean opened) {
-        isOpened = opened;
-    }
 
     public void setDto(ArticleDto articleDto) {
         this.title = articleDto.getTitle();

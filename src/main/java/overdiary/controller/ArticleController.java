@@ -12,10 +12,13 @@ import overdiary.domain.Article;
 import overdiary.domain.User;
 import overdiary.dto.ArticleDto;
 import overdiary.helper.LoginUser;
+import overdiary.service.AlarmService;
 import overdiary.service.ArticleService;
 import overdiary.service.AttachmentService;
+import overdiary.service.UserService;
 
 import javax.annotation.Resource;
+import javax.validation.ReportAsSingleViolation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +33,12 @@ public class ArticleController {
     @Resource(name = "attachmentService")
     private AttachmentService attachmentService;
 
+    @Resource(name = "alarmService")
+    private AlarmService alarmService;
+
+    @Resource(name = "userService")
+    private UserService userService;
+
     @GetMapping("")
     public String articleList(Model model) {
         List<Article> articles = new ArrayList<>();
@@ -42,8 +51,8 @@ public class ArticleController {
     }
 
     @GetMapping("/{articleKey}")
-    public String show(@PathVariable long articleKey, Model model) {
-        model.addAttribute("Article", articleService.viewArticle(articleKey));
+    public String show(@LoginUser User loginUser, @PathVariable long articleKey, Model model) {
+        model.addAttribute("Article", articleService.viewArticle(articleKey, loginUser));
         return "/article/show";
     }
 
@@ -58,7 +67,7 @@ public class ArticleController {
     public String create(@LoginUser User loginUser, String label, String title, String contents, String openRange, Long hiddenPath) {
         log.info("filePath : {}", attachmentService.findOne(hiddenPath).getFilePath());
         ArticleDto articleDto = new ArticleDto(title, contents, label, Boolean.parseBoolean(openRange));
-        articleService.create(loginUser, articleDto, attachmentService.findOne(hiddenPath));
+        alarmService.create(articleService.create(loginUser, articleDto, attachmentService.findOne(hiddenPath)), userService.findAllUser());
         return "redirect:/articles";
     }
 }

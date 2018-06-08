@@ -19,7 +19,7 @@
                 var alarmTemplate = $("#alarmTemplate").html();
 
                 var template = alarmTemplate.format(data[0].writer.userId, data[0].title,data[1].writer.userId, data[1].title, data[2].writer.userId, data[2].title, data[3].writer.userId, data[3].title, data[4].writer.userId, data[4].title );
-                $("#realtime-text").after(template).fadeIn(3000);
+                $("#realtime-text").append(template).fadeIn(3000);
             },
             complete: poll
         });
@@ -34,5 +34,6 @@ String.prototype.format = function () {
 };
 
 
-$("#alerts-Dropdown").dropdown();
+
+
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import overdiary.domain.User;
 import overdiary.dto.UserDto;
 import overdiary.exception.UserException;
+import overdiary.service.AlarmService;
 import overdiary.service.UserService;
 
 import javax.annotation.Resource;
@@ -22,6 +23,9 @@ public class UserController {
 
     @Resource(name = "userService")
     UserService userService;
+
+    @Resource(name = "alarmService")
+    AlarmService alarmService;
 
     @GetMapping("/form")
     public String form() {
@@ -47,6 +51,7 @@ public class UserController {
             log.info("USER EXCEPTION ERROR : {}", e.getMessage());
             return "redirect:/user/loginForm";
         }
+
         session.setAttribute("SESSION_KEY",user);
         model.addAttribute("SESSION", session);
         return "redirect:/";

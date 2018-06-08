@@ -38,17 +38,18 @@ public class ArticleService {
     }
 
 
-    public void create(User loginUser, ArticleDto articleDto, Attachment attachment) {
+    public Article create(User loginUser, ArticleDto articleDto, Attachment attachment) {
         Article article = articleDto.toArticle();
         article.setWriter(loginUser);
         article.addFile(attachment);
         Article newArticle = articleRepository.save(article);
         log.info("삽입할 글 정보 : {}", newArticle.getTitle());
+        return newArticle;
     }
 
 
     @Transactional
-    public Article viewArticle(long articleKey) {
+    public Article viewArticle(long articleKey, User loginUser) {
         Article article = findById(articleKey);
         article.setViews();
         return article;

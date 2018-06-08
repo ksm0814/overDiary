@@ -3,14 +3,17 @@ package overdiary.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import overdiary.helper.SchedulerConfig;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
+    private static final Logger log = LoggerFactory.getLogger(User.class);
     public static final GuestUser GUEST_USER = new GuestUser();
 
     @Column(unique = true, nullable = false, name = "USERKEY")
@@ -122,9 +125,12 @@ public class User extends AbstractEntity {
         this.chartPlayTime = chartPlayTime;
     }
 
+
     public boolean isSamePassword(String password){
         return this.password.equals(password);
     }
+
+
 
     @JsonIgnore
     public boolean isGuestUser() {
