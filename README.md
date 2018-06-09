@@ -1,4 +1,4 @@
-# overDiary [![Build Status](https://travis-ci.org/ksm0814/overDiary.svg?branch=master)](https://travis-ci.org/ksm0814/overDiary)
+# OverDiary [![Build Status](https://travis-ci.org/ksm0814/overDiary.svg?branch=master)](https://travis-ci.org/ksm0814/overDiary)
 
 1. CRUD 가능한 자유게시판
 
