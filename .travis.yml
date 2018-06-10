@@ -18,4 +18,4 @@ script: "gradle build -x test"
 notifications:
   email:
     recipients:
-      - xxx@gmail.com
+      - puuurm@naver.com

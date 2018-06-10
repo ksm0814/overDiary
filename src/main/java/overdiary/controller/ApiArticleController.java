@@ -18,7 +18,6 @@ import java.util.List;
 public class ApiArticleController{
     private static final Logger log = LoggerFactory.getLogger(ApiArticleController.class);
 
-
     @Resource(name = "articleService")
     ArticleService articleService;
 

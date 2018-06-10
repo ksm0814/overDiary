@@ -21,6 +21,9 @@ public class Alarm extends AbstractEntity {
     private User targetUser;
 
     @Column
+    private boolean isOpened = false;
+
+    @Column
     private long articleId;
 
 
@@ -57,4 +60,11 @@ public class Alarm extends AbstractEntity {
         return articleId;
     }
 
+    public boolean isOpened() {
+        return isOpened;
+    }
+
+    public void setOpened(boolean opened) {
+        isOpened = opened;
+    }
 }

@@ -1,4 +1,14 @@
-$("#alerts-Dropdown").dropdown();
+var dropdown = $("#alerts-Dropdown");
+
+dropdown.click(function (e) {
+    e.preventDefault();
+    console.log("clicked");
+})
+
+dropdown.dropdown(function (e) {
+    e.preventDefault();
+    console.log("clicked2");
+});
 
 
 (function alarmPoll() {
@@ -8,15 +18,16 @@ $("#alerts-Dropdown").dropdown();
                 url: "/api/alarms/send",
                 dataType: "json",
                 success: function (data) {
-                    var lists = [];
-                    lists = data.alarmList;
-                    console.log(lists)
-                    var alarmtText = $("#realtime-alarm-template").html();
-                    $(".alarm-dropdown-div").fadeOut('fast').remove();
-                    $.each(lists, function (index, value) {
-                        var template = alarmtText.format(value.message, value.articleId, value.alarmKey);
-                        $("#alarm-dropdown").append(template).fadeIn(3000);
-                    });
+                    var lists = data.alarmList;
+                    if(lists.size != 0) {
+                        console.log(lists)
+                        var alarmtText = $("#realtime-alarm-template").html();
+                        $(".alarm-dropdown-div").fadeOut('fast').remove();
+                        $.each(lists, function (index, value) {
+                            var template = alarmtText.format(value.message, value.articleId, value.alarmKey);
+                            $("#alarm-dropdown").append(template).fadeIn(3000);
+                        });
+                    }
                 },
                 complete: alarmPoll()
             });
