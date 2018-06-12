@@ -41,6 +41,7 @@ public class AlarmService {
         List<Alarm> recentAlarms = alarmRepository.findByTargetUserAndIsOpened(user, false);
         for (Alarm alarm : recentAlarms) {
             alarm.setOpened(true);
+            //opened 된거 확인 필요
         }
         return recentAlarms;
     }
