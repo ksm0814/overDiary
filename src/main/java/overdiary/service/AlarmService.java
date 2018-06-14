@@ -41,7 +41,6 @@ public class AlarmService {
         List<Alarm> recentAlarms = alarmRepository.findByTargetUserAndIsOpened(user, false);
         for (Alarm alarm : recentAlarms) {
             alarm.setOpened(true);
-            //opened 된거 확인 필요
         }
         return recentAlarms;
     }
@@ -49,5 +48,12 @@ public class AlarmService {
     public void removeAlarm(long alarmKey) {
         alarmRepository.delete(alarmKey);
 
+    }
+
+    public List<Alarm> findNotOpened(User loginuser) {
+        List<Alarm> alarms =alarmRepository.findByTargetUser(loginuser);
+        if(alarms.size() != 0)
+            return alarmRepository.findByTargetUser(loginuser);
+        return null;
     }
 }

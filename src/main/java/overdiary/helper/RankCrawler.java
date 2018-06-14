@@ -9,10 +9,6 @@ import javax.annotation.Resource;
 
 public class RankCrawler implements Job{
 
-    // 실시간 알림
-    // 배포 자동화
-    // 캐싱
-
     @Resource(name = "crawlService")
     private CrawlService crawlService;
 

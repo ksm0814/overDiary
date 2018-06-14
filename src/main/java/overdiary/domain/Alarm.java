@@ -67,4 +67,15 @@ public class Alarm extends AbstractEntity {
     public void setOpened(boolean opened) {
         isOpened = opened;
     }
+
+    @Override
+    public String toString() {
+        return "Alarm{" +
+                "alarmKey=" + alarmKey +
+                ", message='" + message + '\'' +
+                ", targetUser=" + targetUser +
+                ", isOpened=" + isOpened +
+                ", articleId=" + articleId +
+                '}';
+    }
 }

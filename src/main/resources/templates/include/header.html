@@ -169,7 +169,19 @@
                     </span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="alerts-Dropdown" id="alarm-dropdown">
-
+                    <div class="alarm-dropdown-div">
+                        <div class="dropdown-divider"></div>
+                        {{#Alarms}}
+                        <a class="dropdown-item" href="/articles" type="button">
+                        <span class="text-success">
+                            <strong><i class="fa fa-long-arrow-up fa-fw"></i>새 글이 등록되었습니다.</strong>
+                        </span>
+                            <span class="small float-right text-muted">11:21 AM</span>
+                            <div class="dropdown-message">{{this}}
+                            </div>
+                        </a>
+                        {{/Alarms}}
+                    </div>
                 </div>
             </li>
 

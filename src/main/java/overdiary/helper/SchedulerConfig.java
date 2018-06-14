@@ -1,25 +1,25 @@
 package overdiary.helper;
 
-import org.quartz.JobDetail;
-import org.quartz.SimpleTrigger;
-import org.quartz.Trigger;
-import org.quartz.spi.JobFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.PropertiesFactoryBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
-import org.springframework.scheduling.quartz.JobDetailFactoryBean;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+        import org.quartz.JobDetail;
+        import org.quartz.SimpleTrigger;
+        import org.quartz.Trigger;
+        import org.quartz.spi.JobFactory;
+        import org.slf4j.Logger;
+        import org.slf4j.LoggerFactory;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.beans.factory.annotation.Qualifier;
+        import org.springframework.beans.factory.annotation.Value;
+        import org.springframework.beans.factory.config.PropertiesFactoryBean;
+        import org.springframework.context.ApplicationContext;
+        import org.springframework.context.annotation.Bean;
+        import org.springframework.context.annotation.Configuration;
+        import org.springframework.core.io.ClassPathResource;
+        import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
+        import org.springframework.scheduling.quartz.JobDetailFactoryBean;
+        import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
-import java.io.IOException;
-import java.util.Properties;
+        import java.io.IOException;
+        import java.util.Properties;
 
 
 @Configuration
@@ -45,7 +45,7 @@ public class SchedulerConfig {
         factory.setJobFactory(jobFactory);
         factory.setQuartzProperties(quartzProperties());
         factory.setTriggers(cronJobTrigger);
-        LOG.info("starting jobs....");
+        LOG.info("Job will start...");
         return factory;
     }
 
@@ -67,7 +67,7 @@ public class SchedulerConfig {
     @Bean
     public Properties quartzProperties() throws IOException {
         PropertiesFactoryBean propertiesFactoryBean = new PropertiesFactoryBean();
-        propertiesFactoryBean.setLocation(new ClassPathResource("/quartz.properties"));
+        propertiesFactoryBean.setLocation(new ClassPathResource("/quartz.properties")); // quartz 설정 파일을 만들고 경로 등록
         propertiesFactoryBean.afterPropertiesSet();
         return propertiesFactoryBean.getObject();
     }
@@ -75,7 +75,7 @@ public class SchedulerConfig {
     @Bean
     public JobDetailFactoryBean simpleJobDetail() {
         JobDetailFactoryBean factoryBean = new JobDetailFactoryBean();
-        factoryBean.setJobClass(RankCrawler.class);
+        factoryBean.setJobClass(RankCrawler.class); //여기에 일할 클래스를 등록
         factoryBean.setDurability(true);
         return factoryBean;
     }
