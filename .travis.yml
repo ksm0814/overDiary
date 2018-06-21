@@ -18,7 +18,7 @@ script: "gradle build -x test"
 notifications:
   email:
     recipients:
-      - puuurm@naver.com
+      - kksm0814@naver.com
 
 before_deploy:
   - zip -r springboot-overdiary *
@@ -42,7 +42,7 @@ deploy:
    - provider: codedeploy
       access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
       secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-      bucket: springboot-overdiary-deploy # S3 버킷
+      bucket: springboot-overdiary-deploy-bucket # S3 버킷
       key: springboot-overdiary.zip # 빌드 파일을 압축해서 전달
       bundle_type: zip
       application: springboot-overdiary # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
