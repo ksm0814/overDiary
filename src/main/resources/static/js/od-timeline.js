@@ -37,6 +37,9 @@ String.prototype.format = function () {
 };
 
 
+alert("배포 자동화 완료");
+
+
 
 
 
